@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+div {
+right: 20px;
+color: black;
+}
+div.absalute{
+    position:absolute;
+left: 30px;
+color: lawngreen;
+}
+div.relative{
+    position:relative;
+left: 40px;
+border: 3px solid black;
+}
+div.fixed{
+position:fixed;
+top:0px;
+right: 20px;
+width: 300px;
+border:10px ;
+}
+div.sticky{
+position:sticky;
+top:1px;
+left:20px;
+width: 200px;
+border: 1px solid red;
+}
+</style>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>positioning</h2>
+<div> this is with no positioning element</div>
+<div class="sticky"> this is sticky positioning</div>
+<div class="fixed"> this is fixed positioning</div>
+<div class="relative">this is relative positioning</div>
+<div class="absalute">this is absalute positioning</div>
+</body>
+</html>
