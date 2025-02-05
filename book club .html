@@ -1,143 +1,414 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>mount caramel book club</title>
-   <style>
-    body {
-        background-color: blue;
+
+    <title>Mount Caramel Book Club</title>
+
+    <style>
+        /* General Styles */
+
+        body {
+
+            background-color: rgb(159, 245, 202);
+
+            font-family: Arial, sans-serif;
+
+            margin: 0;
+
+            padding: 0;
+
         }
+
+        /* Header */
+
         header {
-            background-color:aquamarine;
+
+            background-color: aquamarine;
+
             display: flex;
-            justify-content : space-between;
-            align-items:center;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            padding: 10px;
+
         }
+
+        /* Navigation Bar */
+
         nav {
-            background-color:crimson;
+
+            background-color: crimson;
+
             position: sticky;
-            top: 2px;
-             z-index: 2;
-             display:flex;
-             justify-content:center;
+
+            top: 0;
+
+            z-index: 2;
+
+            display: flex;
+
+            justify-content: center;
+
+            padding: 10px;
 
         }
-        h1 {
-            color:orange
+
+        nav ul {
+
+            list-style: none;
+
+            padding: 0;
+
+            margin: 0;
+
+            display: flex;
+
+            gap: 20px;
+
         }
-intro h1{
-background-color: chocolate;
-font-family: Arial, Helvetica, sans-serif;
-margin:30px
-}
-#main-section{
-background-color: lightsalmon;
-font-family: monospace;
-padding: 5px;
-font-size: 24px;
-text-align: center;
-margin-bottom:30px;
-}
-header,nav 
-#main section{
-border-radius: 10px solid black;
-}
-.teacher info{
-border-radius:5px;
-margin:10px;
-width:400px;
-box-shadow :6px 0px 21px- 3px #333333;
-display:flex;
-justify-content: center;
-align-items: center;
-}
-li a{
-font-size: 10px;
-font-weight: 200;
-font-style: normal;
-text-decoration:none ;
-}
-li a:hover{
-color:#333333;
 
+        nav li {
 
-}
+            display: inline;
 
+        }
 
+        nav a {
 
+            color: white;
 
+            text-decoration: none;
 
-        </style>
+            font-size: 16px;
+
+            font-weight: bold;
+
+        }
+
+        nav a:hover {
+
+            color: #333333;
+
+        }
+
+        /* Main Section */
+
+        #main-section {
+
+            background-color: lightsalmon;
+
+            font-family: monospace;
+
+            padding: 10px;
+
+            font-size: 20px;
+
+            text-align: center;
+
+            margin-bottom: 30px;
+
+            border-radius: 10px;
+
+        }
+
+        /* Teacher Info */
+
+        .teacher-info {
+
+            border-radius: 5px;
+
+            margin: 10px;
+
+            width: 400px;
+
+            box-shadow: 6px 0px 21px -3px #333333;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            padding: 10px;
+
+            background-color: white;
+
+        }
+
+        /* Grid Layout */
+
+        .grid-container {
+
+            display: grid;
+
+            grid-template-areas:
+
+                "header"
+
+                "nav"
+
+                "intro"
+
+                "main-section"
+
+                "bestsellers"
+
+                "footer";
+
+            gap: 10px;
+
+            padding: 10px;
+
+        }
+
+        header {
+            grid-area: header;
+        }
+
+        nav {
+            grid-area: nav;
+        }
+
+        #intro {
+            grid-area: intro;
+        }
+
+        #main-section {
+            grid-area: main-section;
+        }
+
+        #bestseller {
+            grid-area: bestsellers;
+        }
+
+        footer {
+            grid-area: footer;
+        }
+
+        /* Footer */
+
+        footer {
+
+            background-color: #444;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 10px;
+
+            border-radius: 5px;
+
+        }
+
+        /* Table */
+
+        table {
+
+            width: 100%;
+
+            border-collapse: collapse;
+
+            margin: 20px 0;
+
+            background: white;
+
+        }
+
+        th,
+        td {
+
+            border: 1px solid black;
+
+            padding: 10px;
+
+            text-align: center;
+
+        }
+
+        /* Responsive Image */
+
+        img {
+
+            max-width: 100%;
+
+            height: auto;
+
+        }
+    </style>
+
 </head>
+
 <body>
-<h1>BOOKS CLUB</h1>
 
-<img src="books.jpeg" alt="A list of books" > 
-<nav>
-    <li><a href="https://www.youtube.com/"> home</a> </li>
-    <li><a href="https://www.youtube.com/"> BOOK READING </a></li>
-    <LI><A href="https://www.youtube.com/"> MEMBERS</A></li>
-</nav>
-    <h1> MOUNT CARAMEL BOOK CLUB</h1> 
-    
-    MOUNT CARAMEL BOOK CLUB IS A DIGITAL COMMUNITY OF ONLINE BOOK READER 
+    <div class="grid-container">
 
-    <h1> MEET OUR TEACHER</h1>
+        <!-- Header -->
 
-   <h3>MRS. EMMA</h3>
+        <header>
 
-<img src="OIP.jpeg" alt="Image of mrs.Emma" width="200">
+            <h1>Mount Caramel Book Club</h1>
 
-   Mrs emma is an elementary 
+        </header>
 
-   <h2>Related videoes</h2>
+        <!-- Navigation -->
 
-<video width="360" height="200" controls autoplay> 
-    <source src="SampleVideo_1280x720_10mb (1).mp4"type ="video/mp4"> </video> 
- 
-<table>
-<tr>
-<th>Monday</th>
-<td> 11 Am to 9 Pm </td>
-</tr>
-<tr>
-<th>Tuesday</th>
-<td>11 Am to 9 Pm</td>
-</tr>
-<tr>
-    <th>wednesday</th>
-    <td>11 Am to 9 Pm</td>
-</tr>
-<tr>
-<th>thursday</th>
-<td>11 Am to 9 Pm</td>
-</tr>
-<tr>
-<Th>friday</Th>
-<td>11 Am to 9 Pm</td>
-</tr>
-<th>saturday</th>
-<td>11 Am to 9 Pm</td>
-<tr>
-<th>sunday</th>
-<td>closed</td>
-</tr>
-</table>
-<footer>
-<p><spam> contact us Mrs. caroline</spam></p>
-<p><spam>Mobile no.</spam>3456784567</p>
-<p><spam>Address; street 2 palm city</spam></p>
-</footer>
-<intro><h1> MOUNT CARAMEL BOOK CLUB</h1>
+        <nav>
 
-MOUNT CARAMEL BOOK CLUB IS A DIGITAL COMMUNITY OF ONLINE BOOK READER
+            <ul>
 
-<h1> MEET OUR TEACHER</h1>
+                <li><a href="#">Home</a></li>
 
-<h3>MRS. EMMA</h3></intro>
+                <li><a href="#">Book Reading</a></li>
+
+                <li><a href="#">Members</a></li>
+
+            </ul>
+
+        </nav>
+
+        <!-- Introduction -->
+
+        <section id="intro">
+
+            <h1>Mount Caramel Book Club</h1>
+
+            <p>Mount Caramel Book Club is a digital community of online book readers.</p>
+
+        </section>
+
+        <!-- Main Section -->
+
+        <section id="main-section">
+
+            <h1>Meet Our Teacher</h1>
+
+            <div class="teacher-info">
+
+                <h3>Mrs. Emma</h3>
+
+                <img src="OIP.jpeg" alt="Image of Mrs. Emma" width="200">
+
+                <p>Mrs. Emma is an elementary school teacher passionate about books and reading.</p>
+
+            </div>
+
+        </section>
+
+        <!-- Video Section -->
+
+        <h2>Related Videos</h2>
+
+        <video width="360" height="200" controls autoplay>
+
+            <source src="SampleVideo_1280x720_10mb (1).mp4" type="video/mp4">
+
+        </video>
+
+        <!-- Bestsellers Section -->
+
+        <section id="bestseller">
+
+            <h2>Our Bestseller Books</h2>
+
+            <img src="books.jpeg" alt="A list of books">
+
+        </section>
+
+        <!-- Schedule Table -->
+
+        <h2>Operating Hours</h2>
+
+        <table>
+
+            <tr>
+
+                <th>Day</th>
+
+                <th>Time</th>
+
+            </tr>
+
+            <tr>
+
+                <td>Monday</td>
+
+                <td>11 AM - 9 PM</td>
+
+            </tr>
+
+            <tr>
+
+                <td>Tuesday</td>
+
+                <td>11 AM - 9 PM</td>
+
+            </tr>
+
+            <tr>
+
+                <td>Wednesday</td>
+
+                <td>11 AM - 9 PM</td>
+
+            </tr>
+
+            <tr>
+
+                <td>Thursday</td>
+
+                <td>11 AM - 9 PM</td>
+
+            </tr>
+
+            <tr>
+
+                <td>Friday</td>
+
+                <td>11 AM - 9 PM</td>
+
+            </tr>
+
+            <tr>
+
+                <td>Saturday</td>
+
+                <td>11 AM - 9 PM</td>
+
+            </tr>
+
+            <tr>
+
+                <td>Sunday</td>
+
+                <td>Closed</td>
+
+            </tr>
+
+        </table>
+
+        <!-- Footer -->
+
+        <footer>
+
+            <p><span>Contact us: Mrs. Caroline</span></p>
+
+            <p><span>Mobile no.: 3456784567</span></p>
+
+            <p><span>Address: Street 2, Palm City</span></p>
+
+        </footer>
+
+    </div>
+
 </body>
-
-
 
 </html>
