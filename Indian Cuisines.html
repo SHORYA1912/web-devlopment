@@ -17,13 +17,16 @@
 
 head {
     background-color: palegreen;
-    width: 200px
-    margin:70.00px
-    padding: 30px
-    border: 30px
+margin: 30px
+width 220px
 }
 body {
     background-color: turquoise;
+    display: flex;
+    justify-content: center;
+    align-items: space-between;
+    flex-direction: column;
+    display: grid;    
 }
 nav {
     background-color: lightgreen;
@@ -36,7 +39,32 @@ h2 {
     color:crimson;
     font-family: 'Courier New', Courier, monospace;
 }
+div.sticky{
+position:sticky;
+}
+.displaygrid{
 
+            display: grid;
+
+            grid-template-areas:
+
+                "head"
+
+                "nav"
+
+                "body"
+
+                "h1"
+
+                "h2"
+
+                "div,sticky";
+
+            gap: 10px;
+
+            padding: 10px;
+
+}
 </style>
 
 <table>
@@ -45,7 +73,7 @@ h2 {
 <td><h1>Indian cuisine</h1></td>         
     </tr>
         
-<h2><b><p>Indian cuisine consists of a variety of regional and traditional cuisines native to the Indian subcontinent. Given the
+<displaygrid><div.sticky><h2><b><p>Indian cuisine consists of a variety of regional and traditional cuisines native to the Indian subcontinent. Given the
 diversity in soil, climate, culture, ethnic groups, and occupations, these cuisines vary substantially and use locally
 available spices, herbs, vegetables, and fruits.
 
@@ -85,7 +113,7 @@ herding in South Asia. By 3000 BCE, turmeric, cardamom, black pepper and mustard
 From Around 2350 BCE the evidence for imports from the Indus to Ur in Mesopotamia have been found, as well as Clove
 heads which are thought to originate from the Moluccas in Maritime Southeast Asia were found in a 2nd millennium BC site
 in Terqa. Akkadian Empire records mention timber, carnelian and ivory as being imported from Meluhha by Meluhhan ships,
-Meluhha being generally considered as the Mesopotamian name for the Indus Valley Civilization.</p></b></h2>
+Meluhha being generally considered as the Mesopotamian name for the Indus Valley Civilization.</p></b></h2></div.sticky</displaygrid>
 
 <table>
 <tr>
