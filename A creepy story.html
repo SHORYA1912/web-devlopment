@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A creepy story</title>
+
+<style>
+body.dark{
+color: white;
+background: black;
+}
+button{
+display:block;
+margin: 5px;
+}
+.textentry{
+padding-top: 12px;
+padding-bottom: 15px;
+}
+</style>
+</head>
+<body>
+ 
+    <h1>A creepy story</h1>
+<p id="story">I wanted to find my friend, and he was hiding in the basement</p>
+<button onclick="godark()"> Get in dark mode </button>
+<div id="textentry"> write your name ,if you dare <input type="text" id="name"> </div>
+<button onclick="typeandscream()">Please,Please dont click me</button>
+<button onclick="finishthestory()">tell me what happened</button>
+
+<script>
+ function typeandscream () {
+var personame= document.getElementById('name').value;
+alert("i told you to not do that" + personame )
+}
+
+function godark(){
+document.body.className="dark";
+}
+
+function finishthestory(){
+document.getElementById('story') .innerHTML= "so i carefully searched that damp deongeon. there you are!"
+
+}
+
+</script>
+</body>
+</html>
