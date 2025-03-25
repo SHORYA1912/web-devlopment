@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+body{
+    text-align: center;
+}
+nav{
+background-color: white;
+padding: 10px;
+
+}
+ol{
+list-style-type: none;
+padding: 20px;
+margin: 20px;
+overflow: hidden;
+}
+li{
+float: left;
+margin: 20px;
+padding: 20px;
+}
+li a{
+    display: block;
+}
+li a:HOVER{
+    background-color: lightseagreen;
+}
+    </style>
+</head>
+<body>
+ <nav>
+<ol>
+<li><a href="know more.html">Know more</a></li>
+<li><a href="about.html">about</a></li>
+<li><a href="contact.html"> Contact us </a></li>
+</ol>
+ </nav>
+    <h2>interesting information</h2>
+<img src="tiger.jpeg" alt="tiger">
+<button onclick="tiger()">Read more!</button>
+<p id="tiger-info"></p>
+
+<img src="lion.jpeg" alt="lion image">
+<button onclick="lion()">Read more!</button>
+<p id="lion-info"></p>
+
+<script>
+
+function tiger(){
+    document.getElementById(`tiger-info`).innerHTML="Tigers, scientifically known as Panthera tigris, are the largest living cat species, known for their distinctive orange and black stripes and solitary hunting habits."
+}
+
+function lion(){
+    document.getElementById(`lion-info`).innerHTML="Lions, scientifically known as Panthera leo, are large, powerfully built cats native to Africa and India, known for their muscular bodies, prominent manes (in males), and social behavior in groups called prides. "
+}
+
+
+</script>
+
+
+
+</body>
+</html>
