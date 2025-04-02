@@ -6,6 +6,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+.pimg1, .pimg2, .pimg3{
+    position: relative;
+    opacity: 0.70;
+    background-position: center;
+    background-repeat:no-repeat ;
+    background-attachment: fixed;
+    background-size: cover;
+}
+.pimg1{
+    background-image: url(daksh.jpeg);
+    min-height: 100%;
+}
+.pimg2{
+background-image: url(zebra.jpeg);
+    min-height: 400%;
+}
+.pimg3{
+background-image:url(rabbits.jpeg);
+min-height: 100%;
+}
+.section{
+padding: 50px 80px;
+    text-align: center;
+}
+.section-dark{
+background-color:dimgray;
+color: #ddd;
+}
+.section-light{
+    background-color: #ddd;
+color: dimgray;
+}
+.ptext{
+position: absolute;
+top: 50%;
+width: 100%;
+text-align: center;
+color: #000;
+font-size: 27px;
+letter-spacing: 8px;
+text-transform: uppercase;
+}
+.ptext .border .trans{
+background-color: transparent;
+}
         body {
             margin: 0px;
             font-family: Arial, Helvetica, sans-serif;
@@ -110,15 +155,23 @@
     
     </div>
 
+<span class="border trans" style="font-size: 40px;">
+<center>Welcome all to this website</center>
+<section class="section section-dark">
+<h2>Section 1</h2>
 
+<p>Web devlopment is a work of creating website for internet(Private network)</p>
+</section>
 
+</span>
 
-
-
-
-
-
-
+<div class="pimg3">
+    <div class="ptext">
+        <span class="border trans>">
+            Image to text
+        </span>
+    </div>
+</div>
 
 </body>
 
