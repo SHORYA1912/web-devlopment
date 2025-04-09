@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Image Slideshow</title>
+
+    <style>
+        .mySlides {
+
+            display: none;
+
+        }
+
+        img {
+
+            height: 500px;
+
+            width: auto;
+
+            display: block;
+
+            margin: auto;
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <section>
+
+        <img class="mySlides" src="zebra.jpeg" alt="football image">
+
+        <img class="mySlides" src="download.jpeg" alt="ms emma image">
+
+    </section>
+
+    <script>
+
+        var myIndex = 0;
+
+        carousel();
+
+        function carousel() {
+
+            var i;
+
+            var x = document.getElementsByClassName("mySlides");
+
+            for (i = 0; i < x.length; i++) {
+
+                x[i].style.display = "none";
+
+            }
+
+            myIndex++;
+
+            if (myIndex > x.length) { myIndex = 1; }
+
+            x[myIndex - 1].style.display = "block";
+
+            setTimeout(carousel, 3000); // Change image every 3 seconds
+
+        }
+
+    </script>
+
+</body>
+
+</html>
