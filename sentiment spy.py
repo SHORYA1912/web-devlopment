@@ -4,13 +4,13 @@ init(autoreset=True)
 history = []
 
 print(f"{Fore.CYAN} Welcome to the Sentiment Spy")
-print(f"{Fore.YELLOW}COMANDS: HISTORY, RESET, EXIT")
+print(f"{Fore.YELLOW}COMMANDS: HISTORY, RESET, EXIT")
 
 while True:
-    text=input(f"{Fore.GREEN}Enter your text: {Style.RESET_ALL}").strip()
+    text = input(f"{Fore.GREEN}Enter your text: {Style.RESET_ALL}").strip()
 
     if not text:
-       continue
+        continue
     cmd = text.lower()
 
     if cmd == "exit":
@@ -26,13 +26,14 @@ while True:
         if not history:
             print(f"{Fore.RED}NO HISTORY YET")
         else:
-            print(f"{Fore.CYAN}COVERSATION")
+            print(f"{Fore.CYAN}CONVERSATION")
             for i, (T, P, S) in enumerate(history, 1):
-                color = Fore.GREEN if S == "positive" else Fore.RED
+                color = Fore.GREEN if S == "positive" else Fore.RED if S == "negative" else Fore.YELLOW
                 print(f"{color} {i}. {T} | {P} | {S}")
+        continue
 
-polarity = Textblob(text).sentiment.polarity
-sentiment = "postive" if polarity > 0 else "negative" if polarity < 0 else "neutral"
-color = Fore.GREEN if sentiment == "positive" else Fore.RED if sentiment == "negative" else Fore.YELLOW
-print(f"{color}sentiment:{sentiment} (polarity: {polarity})")
-history.append((text, polarity, sentiment))
+    polarity = TextBlob(text).sentiment.polarity
+    sentiment = "positive" if polarity > 0 else "negative" if polarity < 0 else "neutral"
+    color = Fore.GREEN if sentiment == "positive" else Fore.RED if sentiment == "negative" else Fore.YELLOW
+    print(f"{color}sentiment: {sentiment} (polarity: {polarity})")
+    history.append((text, polarity, sentiment))
