@@ -26,8 +26,6 @@ def recommend_movies_debug(genre=None, mood=None, rating=None, top_n=5):
         if pd.isna(overview):
             continue
         polarity = TextBlob(overview).sentiment.polarity
-
-        # Relaxed mood filter: difference less than 0.7 (adjustable)
         if mood and abs(mood_polarity - polarity) > 0.7:
             continue
 
@@ -48,14 +46,14 @@ def main():
 
     while True:
         genre = input ("\n GENRE (NAME OR NUMBER):").strip()
-        if genre is digit():
+        if genre.isdigit():
             genre_index = int(genre)
             if 0 <= genre_index < len(genres):
                 genre = genres[genre_index]
             else:
                 print("Invalid genre number. Please try again.")
                 continue
-        elif genre.lower() not in (g_lower() for g in genres):
+        elif genre.lower() not in (g.lower() for g in genres):
             print("Invalid genre name. Please try again.")
             continue
         
