@@ -2,47 +2,73 @@ import cv2
 import numpy as np
 
 def apply_filter(image, filter_type):
-    gray = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+    # Convert to RGB for edge detection filters
+    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
-    if filter_type in ['r', 'g', 'b']:
-        color_map = {'r': (0, 1), 'g': (0,2), 'b': (1,2)}[filter_type]
-        image[:, :, color_map[0]] = 0
-        image[:, :, color_map[1]] = 0
+    if filter_type == 'r':
+        filtered = image.copy()
+        filtered[:, :, 0] = 0  # Zero Blue
+        filtered[:, :, 1] = 0  # Zero Green
+        return filtered
+    elif filter_type == 'g':
+        filtered = image.copy()
+        filtered[:, :, 0] = 0  # Zero Blue
+        filtered[:, :, 2] = 0  # Zero Red
+        return filtered
+    elif filter_type == 'b':
+        filtered = image.copy()
+        filtered[:, :, 1] = 0  # Zero Green
+        filtered[:, :, 2] = 0  # Zero Red
+        return filtered
     elif filter_type == 's':
         sobelx = cv2.Sobel(gray, cv2.CV_64F, 1, 0, ksize=3)
         sobely = cv2.Sobel(gray, cv2.CV_64F, 0, 1, ksize=3)
         sobel_combined = cv2.magnitude(sobelx, sobely)
-        image = cv2.convertScaleAbs(sobel_combined)
-
+        sobel_norm = cv2.normalize(sobel_combined, None, 0, 255, cv2.NORM_MINMAX)
+        sobel_img = cv2.convertScaleAbs(sobel_norm)
+        return cv2.cvtColor(sobel_img, cv2.COLOR_GRAY2BGR)
     elif filter_type == 'c':
         canny_edges = cv2.Canny(gray, 100, 200)
-        image = cv2.cvtColor(canny_edges, cv2.COLOR_GRAY2BGR)
-
-    return image
-
-image_path = 'python/example.jpeg'
-image = cv2.imread(image_path)
-
-if image is None:
-    print("Error: Could not load image.")
-    exit()
-
-print("PRESS KEY TO APPLY FILTERS:")
-
-print("r - Red tint/ing , g - Green tint/ing , b - Blue tint/ing , q - Quit, s - Sobel Edge Detection , c - Canny Edge Detection ")
-filter_type = 'original'
-
-while True:
-
-    filtered = apply_filter(image.copy(), filter_type)
-    cv2.imshow('Filtered Image', filtered)
-
-    key = cv2.waitKey(0) & 0xFF
-    if key == ord('q'):
-        break
-    elif key in [ord('r'), ord('g'), ord('b'), ord('s'), ord('c')]:
-        filter_type = chr(key)
+        return cv2.cvtColor(canny_edges, cv2.COLOR_GRAY2BGR)
     else:
-        print("Invalid key. Please press r, g, b, s, c, or q.")
+        return image
 
-cv2.destroyAllWindows()
+def main():
+    image_path = 'python/WIN_20250519_22_26_04_Pro.jpg'
+    image = cv2.imread(image_path)
+
+    if image is None:
+        print("Error: Could not load image.")
+        return
+
+    print("PRESS KEY TO APPLY FILTERS:")
+    print("r - Red tint, g - Green tint, b - Blue tint, s - Sobel Edge Detection, c - Canny Edge Detection, o - Original, q - Quit")
+
+    filter_type = 'o'
+
+    while True:
+        filtered = apply_filter(image, filter_type)
+        cv2.imshow('Filtered Image', filtered)
+
+        key = cv2.waitKey(0) & 0xFF
+        if key == ord('q'):
+            break
+        elif key == ord('r'):
+            filter_type = 'r'
+        elif key == ord('g'):
+            filter_type = 'g'
+        elif key == ord('b'):
+            filter_type = 'b'
+        elif key == ord('s'):
+            filter_type = 's'
+        elif key == ord('c'):
+            filter_type = 'c'
+        elif key == ord('o'):
+            filter_type = 'o'
+        else:
+            print("Invalid key. Please press r, g, b, s, c, o, or q.")
+
+    cv2.destroyAllWindows()
+
+if __name__ == "__main__":
+    main()
