@@ -38,6 +38,8 @@ def respond_to_command(command):
     elif 'exit' in command or quit in command:
         speak("GOODBYE!")
         exit()
+    elif 'help' in command:
+        speak("How can I HELP you?")
     else:
         speak("I am sorry, I don't understand that command.")
         return True
