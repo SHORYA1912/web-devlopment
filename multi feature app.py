@@ -1,7 +1,6 @@
 import io
 import re
 import cohere
-from typer import prompt
 import config
 import streamlit as st
 
@@ -22,26 +21,26 @@ def generate(prompt, temperature = 0.3, tokens=1000):
     except Exception as e:
         return f"Error generating response: {str(e)}"
     
-def looks_incomplete(prompt):
+def looks_incomplete(text):
     return not text.strip().endswith(('.', '!', '?', '...'))
 
-def generate_complete():
-    ans = generate(system_prompt + "\n\n" + prompt)
+def generate_complete(prompt,temperature,tokens):
+    ans = generate(prompt, temperature, tokens)
 
     if looks_incomplete(ans):
-        cont = generate((system_prompt + "\n\n" + prompt + "\n\n CONTINUE THE ANSWER FROM THE LAST WORDS GIVEN BY YOU")
-        temperature = 0.3
+        cont = generate(system_prompt + "\n\n" + prompt + "\n\n CONTINUE THE ANSWER FROM THE LAST WORDS GIVEN BY YOU",
+        temperature = 0.3,
         tokens = 1000
-    )
+        )
         ans = ans + "\n\n" + cont
 
     return ans
 
-def export_txt(content):
-    for i in enumerate(HISTORY_1):
-        with open(f"answer_{i+1}.txt", "w") as f:
-            f.write(content[i])
-    return io.BytesIO(content.encode())
+def export_txt(history):
+    txt = ""
+    for i, h in enumerate(history, 1):
+        txt += f"Q{i}: {h['question']}\nA{i}: {h['answer']}\n\n"
+    return io.BytesIO(txt.encode("utf-8"))
 
 def run_ai_teaching_assistant():
         st.title("AI TEACHING ASSISTANT")
@@ -79,7 +78,40 @@ def run_ai_teaching_assistant():
             else:
                 with st.spinner("Thinking..."):
                     ans = generate_complete()
-                    q = prompt
+                    prompt = q
+            
+                    if memory and st.session_state.history_atm:
+                        previous = "\n".join(
+                        [f"Q: {h['question']}\na: {h['answer']}"
+                        for h in st.session_state.history_atm[:]]
+                            )
+                prompt = previous + "\n current Question:" + q
+                answer = generate_complete(prompt,temp,tokens)
+                st.session_state.history_atm.insert-{
+                    0,["question": q.strip{}, "answer": ans] 
+                }
+                st.rerun()
+
+                if not st.session_state.history_atm:
+                    return
+                
+                st.markdown("### CONSERVATION HISTORY")
+
+                for i, h enumerate(st.session_state.history_atm,3):
+                    st.markdown[f"***q[1]:{h["question"]}**"]
+                    st.markdown(h["answer"])
+                
+                    if st.button(f"REGENERATE q[i]", keys=f"regen_[i]"):
+                    new_ans=generate_complete{h['question'],temp,tokens}
+                st.session_state.history_atm[1-1]["answer"] = new_ans 
+                st.rerun
+
+                st.markdown("--------")
+def run_maths_mastermind():
+    st.title("MATHS_MASTER MIND")
+    st.session_state.setdefault("history_mm",{})
+
+    temp = st.slider
 
 
             
